@@ -1,0 +1,97 @@
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="product.fruit_tree_view">
+			<field name="name">product.fruit.tree</field>
+			<field name="model">product.fruit</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="product fruit" editable= "top">
+					<field name="p_name" />
+					<field name="p_place"/>
+					<field name="in_date"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="product.fruit_form_view">
+			<field name="name">product.fruit.form</field>
+			<field name="model">product.fruit</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="product fruit" version="7.0">
+					<sheet>
+						<group>
+						  
+							<field name="p_name" />
+							<field name="quality" />
+							<field name="p_place" />
+							<field name="color"/>
+							<field name="in_date"/>
+							<field name="active"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_product_fruit_tree_view">
+			<field name="name">product.fruit</field>
+			<field name="res_model">product.fruit</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">form,tree</field>
+		</record>
+
+		<menuitem id="product.fruit_menu" name="fruit" parent="product_menu"
+			action="action_product_fruit_tree_view" />
+	</data>
+
+
+
+
+	<data>
+		<record model="ir.ui.view" id="fruit_varieties_tree_view">
+			<field name="name">fruit.varieties.tree</field>
+			<field name="model">fruit.varieties</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="fruit varieties"   editable="bottom" colors="gold:quality=='I';BlanchedAlmond:quality=='II'">
+					<field name="fruit_id" />
+					<field name="quality"/>
+					<field name="color"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="fruit_varieties_form_view">
+			<field name="name">fruit.varieties.form</field>
+			<field name="model">fruit.varieties</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="fruit varieties" version="7.0">
+					<sheet>
+						<group>
+							<field name="fruit_id" />
+							<field name="p_names"/>
+							<field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+							<field name="active"/>
+							<field name="quality"/>
+							<field name="color" readonly='True'/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_product_fruit1_tree_view">
+			<field name="name">fruit.varieties</field>
+			<field name="res_model">fruit.varieties</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+
+
+		<menuitem id="product.fruit1_menu" name="Price Indication" parent="product_menu"
+			action="action_product_fruit1_tree_view" />
+	</data>
+</openerp>

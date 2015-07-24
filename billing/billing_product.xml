@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="billing_product_tree_view">
+			<field name="name">billing.product.tree</field>
+			<field name="model">billing.product</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="billing product">
+					<field name="product_name" />
+				</tree>
+			</field>
+		</record>
+		
+	<!-- 	<record id ="wizard_customer_form_view" model = "ir.action.act_window"> -->
+		
+
+		<record model="ir.ui.view" id="billing_product_form_view">
+			<field name="name">billing.product.form</field>
+			<field name="model">billing.product</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="billing product" version="7.0">
+					<sheet>
+					<button name='py_wizard_change' type='object' string='button' context="{'id':active_id}"/>
+					<!-- <button name='%(action_wizard_customer_form_view)d' type='action' string='button'/> -->
+						<group col='4'>
+							<field name="customer" />
+							<field name="product_name" />
+							<field name="in_date" />
+							<field name="quandity" />
+							<field name="quality" />
+							<field name="email" widget="email" />
+							<field name="phone" />
+							<field name="age" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_wizard_customer_form_view">
+			<field name="name">wizard customer</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">wizard.customer</field>
+			<field name="src_model">billing.product</field>
+			<field name="view_mode">form</field>
+			<field name="view_type">form</field>
+			<field name="target">new</field>
+			
+		</record>
+
+		<record model="ir.actions.act_window" id="action_billing_product_tree_view">
+			<field name="name">billing.product</field>
+			<field name="res_model">billing.product</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">form,tree</field>
+		</record>
+
+		<menuitem id="product_menu" name="product" parent="main_view" />
+		<menuitem id="product_sub_menu" name="List" parent="product_menu"
+			action="action_billing_product_tree_view" />
+
+	</data>
+</openerp>

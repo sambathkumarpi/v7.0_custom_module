@@ -1,0 +1,55 @@
+<openerp>
+    <data>
+            <record model="ir.ui.view" id="onemany_tree_view">
+                <field name="name">billing.onemany.tree</field>
+                <field name="model">billing.onemany</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="example">
+                        <field name="sample_id"/>
+                        <field name="date"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="onemany_form_view">
+                <field name="name">billing.onemany.form</field>
+                <field name="model">billing.onemany</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="example" version ="7.0">
+                        <!-- <field name="sample_id" widget="one2many_list"/> -->
+                        <sheet>
+						<notebook>
+							<page string="Order">
+								<field name="sample_id">
+									<form string="Branc Lines" version="7.0">
+										<group>
+											<field name="product_name" />
+											<field name="quandity" /> 
+										</group>
+									</form>
+									<tree string="Branch lines" editable="top">
+										<field name="product_name" />
+										<field name="quandity" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_onemany_tree_view">
+                <field name="name">billing.onemany</field>
+                <field name="res_model">billing.onemany</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+			<menuitem id="onemany_menu" name="onemany" parent="product_menu" action="action_onemany_tree_view"/>
+
+    
+    </data>
+</openerp>

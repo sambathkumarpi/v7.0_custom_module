@@ -1,0 +1,30 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="inh_sample_form_view">
+			<field name="name">sample.form</field>
+			<field name="model">sample</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="relational.sample_form_view" />
+			<field name="arch" type="xml">
+			
+				<xpath expr="//field[@name='name']" position="after">
+				
+					<field name="mobile" />
+					<field name="customer" />
+				</xpath>
+
+			
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_sample_order_view">
+			<field name="name">sample</field>
+			<field name="res_model">sample</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,graph,gantt,calendar,kanban</field>
+		</record>
+
+		<menuitem id="sub_child2" name="SAMPLE !" parent="sub_view"
+			action="action_sample_order_view" />
+	</data>
+</openerp>

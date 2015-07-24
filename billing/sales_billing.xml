@@ -1,0 +1,25 @@
+<openerp>
+    <data>
+    		 <record model="ir.ui.view" id="new_sales_form_view">
+                <field name="name">new_sales.form</field>
+                <field name="model">new.sales</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="sale.view_order_form"/>
+                <field name="arch" type="xml">
+                        <field name="date_order" position="after">
+                        	<field name="age"/>
+                        </field>
+                </field>
+            </record>
+    
+    
+    		  <record model="ir.actions.act_window" id="action_new_billing_order_view">
+                <field name="name">sales</field>
+                <field name="res_model">new.sales</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">form,tree,graph,gantt,calendar,kanban</field>
+            </record>
+    		
+    		<menuitem id="sub_child1" name="BILLING" parent="sub_view" action="action_new_billing_order_view"/>
+    </data>
+</openerp>

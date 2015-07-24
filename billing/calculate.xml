@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="billing_calculate_tree_view">
+			<field name="name">billing.calculate.tree</field>
+			<field name="model">billing.calculate</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="calculation">
+					<field name="item_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="billing_calculate_form_view">
+			<field name="name">billing.calculate.form</field>
+			<field name="model">billing.calculate</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="calculation" version='7.0'>
+					<header>
+						<button name="dummy" string="calculate" type="object" />
+					</header>
+					<sheet>
+						<group>
+							<field name="item_id" />
+							<field name="quantity" />
+							<field name="total"/>
+							<!-- <field name="tax"/> -->
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_billing_calculate_tree_view">
+			<field name="name">billing.calculate</field>
+			<field name="res_model">billing.calculate</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="billing_calculate_menu" name="calculate"
+			parent="product_menu" action="action_billing_calculate_tree_view" />
+
+
+	</data>
+</openerp>

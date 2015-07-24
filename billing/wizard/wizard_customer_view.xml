@@ -1,0 +1,32 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="wizard_customer_form_view">
+			<field name="name">wizard.customer.form</field>
+			<field name="model">wizard.customer</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="wizard customer" version="7.0">
+					<group>
+						<field name="cust" />
+						<field name="age_selection" />
+					</group>
+					<footer>
+						<button name="wiz" string="Process" type="object" class="oe_highlight"
+							icon="gtk-execute" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<!-- <act_window name="wizard customer" res_model="wizard.customer" view_id="wizard_customer_form_view" 
+			target="new" src_model="wizard.customer" id="action_wizard_custome_id" /> -->
+
+		<record model="ir.actions.act_window" id="action_wizard_customer_form_view">
+			<field name="name">wizard.customer</field>
+			<field name="res_model">wizard.customer</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		
+	</data>
+</openerp>

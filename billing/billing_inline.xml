@@ -1,0 +1,49 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="billing_inline_tree_view">
+			<field name="name">billing_inline.tree</field>
+			<field name="model">billing.inline</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="billing_inline">
+					<field name="customer_id" />
+					<field name="total" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="billing_inline_form_view">
+			<field name="name">billing_inline.form</field>
+			<field name="model">billing.inline</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="billing inline" version="7.0">
+					<sheet>
+						<group col='4'>
+							<field name="customer_id" />
+							<field name="email" />
+							<field name="phone" />
+							<field name="age" />
+							<!-- <field name="fruit_ids"/> -->
+						</group>
+
+
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_billing_inline_tree_view">
+			<field name="name">billing_inline</field>
+			<field name="res_model">billing.inline</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="billing_inline_menu" name="inline" parent="sub_view"
+			action="action_billing_inline_tree_view" />
+
+
+	</data>
+</openerp>

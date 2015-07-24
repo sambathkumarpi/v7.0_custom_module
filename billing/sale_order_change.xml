@@ -1,0 +1,17 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="order_changeform_view">
+			<field name="name">sale.order.form</field>
+			<field name="model">sale.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="payment_type" />
+					<field name="country_code" />
+					<field name="partner_email" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>
