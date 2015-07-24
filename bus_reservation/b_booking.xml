@@ -1,0 +1,63 @@
+<openerp>
+	<data>
+
+
+		<record model="ir.ui.view" id="b_booking_tree_view">
+			<field name="name">b_booking.tree</field>
+			<field name="model">buss.booking</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="booking">
+					<field name="a1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="b_booking_form_view">
+			<field name="name">b_booking.form</field>
+			<field name="model">buss.booking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml" >
+				<form string="booking" version='7.0'>
+					<sheet>
+						<group cal='4'>
+							<field name="a1" />
+							<field name="a2" />
+							<field name="a3" />
+							<field name="a4" />
+							<field name="a5" />
+							<field name="a6" />
+							<field name="a7" />
+							<field name="a8" />
+							<field name="a9" />
+							<field name="a10" />
+							<field name="a11" />
+							<field name="a12" />
+							<field name="a13" />
+							<field name="a14" />
+							<field name="a15" />
+							<field name="a16" />
+							<field name="a17" />
+							<field name="a18" />
+							<field name="a19" />
+							<field name="a20" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_b_booking_tree_view">
+			<field name="name">b_booking</field>
+			<field name="res_model">buss.booking</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="sub_parrent" name="new booking" parent="super_menu" />
+		<menuitem id="b_booking_menu" name="b_booking" parent="sub_parrent"
+			action="action_b_booking_tree_view" />
+
+
+	</data>
+</openerp>

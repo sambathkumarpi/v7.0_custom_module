@@ -1,0 +1,40 @@
+<openerp>
+    <data>
+    
+            
+            <record model="ir.ui.view" id="reservation_tree_view">
+                <field name="name">reservation.tree</field>
+                <field name="model">buss.reservation</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="reservation">
+                        <field name="movie_name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="reservation_form_view">
+                <field name="name">reservation.form</field>
+                <field name="model">buss.reservation</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="reservation">
+                        <field name="movie_name"/>
+                        <field name="date"/>
+                        <field name="n_o_seat"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_reservation_tree_view">
+                <field name="name">reservation</field>
+                <field name="res_model">buss.reservation</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+			<menuitem id="reservation_menu" name="reservation" parent="sub_parrent" action="action_reservation_tree_view"/>
+
+    
+    </data>
+</openerp>

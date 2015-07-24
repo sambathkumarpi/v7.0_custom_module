@@ -1,0 +1,32 @@
+<openerp>
+	<data>
+
+
+		<record model="ir.ui.view" id="bus_seat_tree_view">
+			<field name="name">bus_seat.tree</field>
+			<field name="model">bus.seat</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="seatno" />
+					<field name="booked" />
+					<!-- <field name="bus_id"/> -->
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="action_bus_seat_tree_view">
+			<field name="name">bus_seat</field>
+			<!-- <field name="type">ir.actions.act_window</field -->>
+			<field name="res_model">bus.seat</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<!-- <field name="view_id" ref="bus_seat_tree_view" /> -->
+		</record>
+
+		<menuitem id="Bus_seat_menu" name="Bus seat" parent="parent_menu1"
+			action="action_bus_seat_tree_view" />
+
+	</data>
+</openerp>

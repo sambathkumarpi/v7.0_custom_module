@@ -1,0 +1,50 @@
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="bus_seat_form_view">
+			<field name="name">seat.form</field>
+			<field name="model">seat.detail</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="bus_seat_deatil" version="7.0">
+					<sheet>
+						<group>
+							<field name="date" />
+						</group>
+						<notebook>
+							<page string="Select Seat">
+								<field name="book_id">
+									<form string="Branc Lines" version="7.0">
+										<group>
+											<field name="seatno" />
+											<field name="booked" />
+										</group>
+									</form>
+									<tree string="Branch lines" editable="top">
+										<field name="seatno" />
+										<field name="booked" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_bus_seat_tree_view">
+			<field name="name">seat</field>
+			<field name="res_model">seat.detail</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+		</record>
+
+		<menuitem id="parent_menu1" name="Admin" parent="super_menu" />
+		<menuitem id="bus_seat_menu" name="bus_seat_detail" parent="parent_menu1"
+			action="action_bus_seat_tree_view" />
+
+
+
+	</data>
+</openerp>

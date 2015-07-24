@@ -1,0 +1,68 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="registration_tree_view">
+			<field name="name">registration.tree</field>
+			<field name="model">registration</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="registration">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="registration_form_view">
+			<field name="name">registration.form</field>
+			<field name="model">registration</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="registration" version="7.0">
+					<sheet>
+
+						<center>
+							<h1>
+								<separator string="Welcome to bus reservation" />
+							</h1>
+						</center>
+						<notebook>
+							<page string="Login">
+								<group>
+									<field name="name" />
+									<field name="pass" password="True" />
+								</group>
+							</page>
+							<page string="Registration">
+								<group>
+									<field name="name" />
+									<field name="mobile" />
+									<field name="gender" />
+									<field name="email" />
+									<field name="pass" password="True" />
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+
+		<record model="ir.actions.act_window" id="action_registration_tree_view">
+			<field name="name">registration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">registration</field>
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="registration_tree_view" />
+		</record>
+
+		<menuitem id="super_menu" name="Bus Registration" />
+		<menuitem id="parent_menu" name="worker" parent="super_menu" />
+		<menuitem id="registration_menu" name="registration" parent="parent_menu"
+			action="action_registration_tree_view" />
+
+
+	</data>
+</openerp>

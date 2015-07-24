@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="bus_reservation_wizard_form_view">
+			<field name="name">bus.reservation.wizard.form</field>
+			<field name="model">bus.reservation.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Bus Reservation">
+					<field name="name" select="1" />
+				</form>
+			</field>
+		</record>
+
+		<act_window name="Bus reservation" res_model="bus.reservation.wizard" view_id="bus_reservation_wizard_form_view" target="new"
+			src_model="bus.reservation.wizard" id="action_bus_res_id" />
+			
+
+	</data>
+</openerp>

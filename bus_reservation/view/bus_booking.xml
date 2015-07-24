@@ -1,0 +1,59 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="booking_tree_view">
+			<field name="name">booking.tree</field>
+			<field name="model">bus.booking</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="booking">
+					<field name="name" />
+					<field name="root" />
+					<field name="date" />
+					<field name="seat_no"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="booking_form_view">
+			<field name="name">booking.form</field>
+			<field name="model">bus.booking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="booking`" version="7.0">
+					<sheet>
+					<center>
+							<separator string="Welcome to Bus Booking" />
+						</center>
+						<group>
+							<field name="name" />
+							<field name="root" />
+							<field name="date" />
+							<field name="seat_no"/>
+							<!-- <field name="seat" /> -->
+							
+						</group>
+						<center>
+						<button string="booking" confirm="bus seat is booked" />
+						
+						</center>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_booking_tree_view">
+			<field name="name">booking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">bus.booking</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="view_id" ref="booking_tree_view" />
+		</record>
+
+		<menuitem id="parent_menu" name="worker" parent="super_menu" />
+		<menuitem id="booking_menu" name="booking" parent="parent_menu"
+			action="action_booking_tree_view" />
+
+
+	</data>
+</openerp>
